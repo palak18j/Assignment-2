@@ -1,7 +1,8 @@
 package com.example.lenovo.myfirstapp;
 
+import android.app.Activity;
 //import android.os.PersistableBundle;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 final private String msg="Android : ";
     private Button b_next;
     private Button b_true;
@@ -27,9 +28,15 @@ final private String msg="Android : ";
         setContentView(R.layout.activity_main);
         Log.d(msg, " In Create ");
 
+        Random r=new Random();
+        n=r.nextInt(1000)+1;
+        String m="Is "+Integer.toString(n)+" prime or not";//1//
+        TextView t=(TextView)findViewById(R.id.TEXT);
+        t.setText(m);
+
         b_next=(Button)findViewById(R.id.NEXT);
-        b_true=(Button)findViewById(R.id.TRUE);
-        b_false=(Button)findViewById(R.id.FALSE);
+        b_true=(Button)findViewById(R.id.CORRECT);
+        b_false=(Button)findViewById(R.id.INCORRECT);
 
         b_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +81,11 @@ final private String msg="Android : ";
         return true;
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

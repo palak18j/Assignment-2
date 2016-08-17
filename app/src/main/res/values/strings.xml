@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyFirstApp</string>
+    <string name="correct">CORRECT</string>
+    <string name="incorrect">INCORRECT</string>
+    <string name="Next">Next</string>
+    <string name="hello_world">Is 3 prime or not</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>

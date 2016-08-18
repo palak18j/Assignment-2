@@ -15,11 +15,8 @@ import java.util.Random;
 
 public class MainActivity extends Activity {
 final private String msg="Android : ";
-    private Button b_next;
-    private Button b_true;
-    private Button b_false;
-   private int n;
-   private TextView tv;
+    private int n;
+
 private String con;
 
     @Override
@@ -38,17 +35,17 @@ private String con;
         TextView t = (TextView) findViewById(R.id.TEXT);
         t.setText(con);
 
-        b_next=(Button)findViewById(R.id.NEXT);
-        b_true=(Button)findViewById(R.id.CORRECT);
-        b_false=(Button)findViewById(R.id.INCORRECT);
+        Button b_next = (Button) findViewById(R.id.NEXT);
+        Button b_true = (Button) findViewById(R.id.CORRECT);
+        Button b_false = (Button) findViewById(R.id.INCORRECT);
 
         b_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Random r=new Random();
-                n=r.nextInt(1000)+1;
-                String m="Is "+Integer.toString(n)+" prime or not";//1//
-                TextView t=(TextView)findViewById(R.id.TEXT);
+                Random r = new Random();
+                n = r.nextInt(1000) + 1;
+                String m = "Is " + Integer.toString(n) + " prime or not";//1//
+                TextView t = (TextView) findViewById(R.id.TEXT);
                 t.setText(m);
             }
         });
@@ -57,16 +54,16 @@ private String con;
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplication().getBaseContext(),"Correct",Toast.LENGTH_SHORT).show();
-            Log.d(msg,"In true");
+                Toast.makeText(getApplication().getBaseContext(), "Correct", Toast.LENGTH_SHORT).show();
+                Log.d(msg, "In true");
             }
         });
 
         b_false.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplication().getBaseContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-            Log.d(msg,"In false");
+                Toast.makeText(getApplication().getBaseContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+                Log.d(msg, "In false");
             }
         });
     }
@@ -98,11 +95,8 @@ private String con;
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

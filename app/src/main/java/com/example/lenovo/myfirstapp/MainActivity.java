@@ -1,8 +1,7 @@
 package com.example.lenovo.myfirstapp;
 
 import android.app.Activity;
-//import android.os.PersistableBundle;
-//import android.support.v7.app.ActionBarActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;

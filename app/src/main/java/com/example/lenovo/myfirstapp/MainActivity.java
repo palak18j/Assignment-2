@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Random;
-
 
 public class MainActivity extends Activity {
 final private String msg="Android : ";
@@ -29,7 +27,7 @@ private String con;
         {
             r = new Random();
             n = r.nextInt(1000) + 1;
-            con = "Is " + Integer.toString(n) + " prime or not";//1//
+            con = "Is " + Integer.toString(n) + " prime ";//1//
 
         }
         TextView t = (TextView) findViewById(R.id.TEXT);
@@ -44,7 +42,7 @@ private String con;
             public void onClick(View view) {
                 Random r = new Random();
                 n = r.nextInt(1000) + 1;
-                String m = "Is " + Integer.toString(n) + " prime or not";//1//
+                String m = "Is " + Integer.toString(n) + " prime ";//1//
                 TextView t = (TextView) findViewById(R.id.TEXT);
                 t.setText(m);
             }

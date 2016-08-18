@@ -21,18 +21,24 @@ final private String msg="Android : ";
     private Button b_true;
     private Button b_false;
    private int n;
+   private TextView tv;
+private String con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Random r;
         Log.d(msg, " In Create ");
+        if(savedInstanceState==null)
+        {
+            r = new Random();
+            n = r.nextInt(1000) + 1;
+            con = "Is " + Integer.toString(n) + " prime or not";//1//
 
-        Random r=new Random();
-        n=r.nextInt(1000)+1;
-        String m="Is "+Integer.toString(n)+" prime or not";//1//
-        TextView t=(TextView)findViewById(R.id.TEXT);
-        t.setText(m);
+        }
+        TextView t = (TextView) findViewById(R.id.TEXT);
+        t.setText(con);
 
         b_next=(Button)findViewById(R.id.NEXT);
         b_true=(Button)findViewById(R.id.CORRECT);
@@ -72,6 +78,9 @@ final private String msg="Android : ";
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d(msg,"In onSaveInstance");
+        TextView tv1=(TextView)findViewById(R.id.TEXT);
+        con=tv1.getText().toString();
+        outState.putString("TEXT",con);
     }
 
     @Override
@@ -84,7 +93,8 @@ final private String msg="Android : ";
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
         super.onRestoreInstanceState(savedInstanceState);
-
+        TextView tv1=(TextView)findViewById(R.id.TEXT);
+        tv1.setText(savedInstanceState.getString("TEXT"));
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

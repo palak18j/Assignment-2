@@ -2,6 +2,7 @@ package com.example.lenovo.myfirstapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,7 +69,7 @@ private String con;
 
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d(msg,"In onSaveInstance");
         TextView tv1=(TextView)findViewById(R.id.TEXT);
@@ -84,7 +85,7 @@ private String con;
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState){
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState){
         super.onRestoreInstanceState(savedInstanceState);
         TextView tv1=(TextView)findViewById(R.id.TEXT);
         tv1.setText(savedInstanceState.getString("TEXT"));
